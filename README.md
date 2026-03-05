@@ -1,2 +1,0 @@
-# devai
-github mcp server
