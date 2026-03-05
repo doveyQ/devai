@@ -1,0 +1,2 @@
+# devai
+github mcp server
