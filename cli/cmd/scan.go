@@ -15,14 +15,7 @@ OSV vulnerability database, and sends code through a local AI model for review.
 If any critical issues are found, the scan exits with a non-zero code,
 which blocks the commit when used as a pre-commit hook.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		fmt.Println("⚡ DevAI scan — not implemented yet")
-		fmt.Println("")
-		fmt.Println("Planned pipeline:")
-		fmt.Println("  1. Capture staged diff")
-		fmt.Println("  2. Scan dependencies (OSV API)")
-		fmt.Println("  3. AI code review (Ollama)")
-		fmt.Println("")
-		fmt.Println("Coming in the next increments!")
+		fmt.Println("scan not implemented yet")
 		return nil
 	},
 }

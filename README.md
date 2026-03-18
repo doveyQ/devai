@@ -1,5 +1,7 @@
 # DevAI
 
+_in progress ..._
+
 **AI-powered code quality gate — SaaS web app + local CLI agent.**
 
 ## Architecture
