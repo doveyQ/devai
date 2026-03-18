@@ -1,66 +1,87 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { Button } from '@mantine/core';
+import { Shield, Cpu, Github, FileSearch } from 'lucide-react';
+import styles from './page.module.css';
+
+const features = [
+  {
+    icon: <Shield size={20} />,
+    title: 'OSV Vulnerability Scanning',
+    description: 'Automatically checks your dependencies against the OSV database before every commit.',
+  },
+  {
+    icon: <Cpu size={20} />,
+    title: 'Local AI Code Review',
+    description: 'Smart analysis powered by a small, fast model running locally through Ollama. No data leaves your machine.',
+  },
+  {
+    icon: <Github size={20} />,
+    title: 'GitHub Integration',
+    description: 'Connect your repositories for seamless collaboration and centralized quality tracking.',
+  },
+  {
+    icon: <FileSearch size={20} />,
+    title: 'Smart Diff Analysis',
+    description: 'Only reviews meaningful changes — noise files like lockfiles and images are filtered automatically.',
+  },
+];
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className={styles.hero}>
+      <div className={styles.content}>
+        <div className={styles.badge}>
+          <span className={styles.badgeDot} />
+          in development
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        <h1 className={styles.title}>
+          Code quality gates,{' '}
+          <span className={styles.gradientText}>powered by AI</span>
+        </h1>
+
+        <p className={styles.subtitle}>
+          DevAI is a local CLI agent that scans your staged commits for vulnerabilities
+          and code quality issues — using a fast local AI model, not cloud APIs.
+        </p>
+
+        <div className={styles.actions}>
+          <Button
+            size="lg"
+            radius="xl"
+            variant="gradient"
+            gradient={{ from: 'violet', to: 'cyan', deg: 135 }}
+            leftSection={<Github size={18} />}
+            component="a"
+            href="#"
           >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+            Connect GitHub
+          </Button>
+          <Button
+            size="lg"
+            radius="xl"
+            variant="default"
+            component="a"
+            href="https://github.com/doveyQ/devai"
             target="_blank"
-            rel="noopener noreferrer"
           >
-            Documentation
-          </a>
+            View on GitHub
+          </Button>
         </div>
-      </main>
+      </div>
+
+      <div className={styles.features}>
+        {features.map((feature) => (
+          <div key={feature.title} className={styles.featureCard}>
+            <div className={styles.featureIcon}>{feature.icon}</div>
+            <div className={styles.featureTitle}>{feature.title}</div>
+            <div className={styles.featureDesc}>{feature.description}</div>
+          </div>
+        ))}
+      </div>
+
+      <footer className={styles.footer}>
+        DevAI &mdash; AI-powered code quality gate &middot; MIT License
+      </footer>
     </div>
   );
 }
